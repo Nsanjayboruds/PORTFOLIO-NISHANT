@@ -152,7 +152,7 @@ function NavBar() {
 
             <Nav.Item className="fork-btn ml-2">
               <Button
-                href="https://github.com/NishantBorude/portfolio"
+                href="https://github.com/Nsanjayboruds/change"
                 target="_blank"
                 className="fork-btn-inner bg-gradient-to-r from-cyan-500 to-purple-500 border-0 text-white flex items-center px-4 py-2 rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/30 hover:scale-105"
               >
