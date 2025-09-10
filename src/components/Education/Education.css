@@ -1,0 +1,173 @@
+.education-section {
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+  color: #fff;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+}
+
+.particle-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+}
+
+.education-content-wrapper {
+  position: relative;
+  z-index: 1;
+  padding: 80px 20px;
+  background: transparent;
+}
+
+/* Vertical Timeline Customization */
+.vertical-timeline {
+  width: 90%;
+  max-width: 1170px;
+  margin: 0 auto;
+  position: relative;
+  padding: 2em 0;
+}
+
+.vertical-timeline::before {
+  background: linear-gradient(to bottom, 
+    transparent 0%, 
+    #8b5cf6 15%, 
+    #ec4899 50%, 
+    #8b5cf6 85%, 
+    transparent 100%) !important;
+  width: 3px !important;
+}
+
+.vertical-timeline-element-content {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2) !important;
+  border-radius: 16px !important;
+  transition: all 0.3s ease !important;
+}
+
+.vertical-timeline-element-content:hover {
+  transform: translateY(-5px) !important;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3) !important;
+}
+
+.vertical-timeline-element-date {
+  color: #d1d5db !important;
+  font-weight: 600 !important;
+  font-size: 1rem !important;
+  padding: 0.5rem 1rem !important;
+  background: rgba(139, 92, 246, 0.2) !important;
+  border-radius: 20px !important;
+  backdrop-filter: blur(10px) !important;
+}
+
+.education-card-content {
+  padding: 0.5rem;
+}
+
+.timeline-points {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.timeline-points li {
+  color: #e5e7eb;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* Icon animation */
+.vertical-timeline-element-icon {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: all 0.3s ease !important;
+}
+
+.vertical-timeline-element-icon:hover {
+  transform: scale(1.1) !important;
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.6) !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1169px) {
+  .vertical-timeline::before {
+    left: 28px !important;
+  }
+  
+  .vertical-timeline-element-content {
+    width: calc(100% - 90px) !important;
+    margin-left: 90px !important;
+  }
+  
+  .vertical-timeline-element-date {
+    float: none !important;
+    margin: 0.5rem 0 !important;
+    display: inline-block !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .education-content-wrapper {
+    padding: 60px 15px;
+  }
+  
+  .vertical-timeline {
+    width: 100%;
+    padding: 1em 0;
+  }
+  
+  .vertical-timeline-element-content {
+    padding: 1.5rem !important;
+  }
+  
+  .education-card-content h3 {
+    font-size: 1.2rem !important;
+  }
+  
+  .education-card-content h4 {
+    font-size: 1rem !important;
+  }
+}
+
+/* Animation for timeline elements */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.vertical-timeline-element {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.vertical-timeline-element:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.vertical-timeline-element:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+/* Additional info card */
+.additional-info-card {
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 2rem;
+  margin-top: 3rem;
+  transition: all 0.3s ease;
+}
+
+.additional-info-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
