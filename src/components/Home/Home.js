@@ -12,6 +12,13 @@ function Home() {
     setIsVisible(true);
   }, []);
 
+  const scrollToNextSection = () => {
+    const home2Element = document.getElementById("about");
+    if (home2Element) {
+      home2Element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <section className="relative overflow-hidden min-h-screen">
       {/* Animated gradient background */}
@@ -67,6 +74,7 @@ function Home() {
                 </div>
               </div>
             </Col>
+            
 
             <Col md={5} className="relative">
               <div className={`transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
@@ -82,10 +90,23 @@ function Home() {
             </Col>
           </Row>
           
-          {/* Scroll indicator */}
-          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center text-cyan-300/70">
-            <div className="w-1 h-16 bg-gradient-to-b from-cyan-400 to-transparent rounded-full mb-2 animate-pulse"></div>
-            <p className="text-sm">Scroll down</p>
+          {/* Scroll down arrow */}
+          <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-10">
+            <button 
+              onClick={scrollToNextSection}
+              className="animate-bounce flex items-center justify-center w-12 h-12 rounded-full bg-cyan-500/20 backdrop-blur-sm border border-cyan-400/30 hover:bg-cyan-500/30 transition-colors duration-300"
+              aria-label="Scroll up"
+            >
+              <svg 
+                className="w-6 h-6 text-cyan-400" 
+                fill="none" 
+                stroke="currentColor" 
+                viewBox="0 0 24 24" 
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+              </svg>
+            </button>
           </div>
         </Container>
       </Container>

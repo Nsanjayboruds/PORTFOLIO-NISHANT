@@ -4,6 +4,10 @@ import myImg from "../../Assets/avatarmy.jpg";
 import Tilt from "react-parallax-tilt";
 import { AiFillGithub, AiOutlineTwitter } from "react-icons/ai";
 import { FaLinkedinIn } from "react-icons/fa";
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import { ArrowDown } from "lucide-react";
+import { FaArrowDown } from "react-icons/fa";
 
 function Home2() {
   const [isVisible, setIsVisible] = useState(false);
@@ -117,6 +121,7 @@ function Home2() {
               </ul>
             </div>
           </Col>
+               
         </Row>
       </Container>
     </Container>
