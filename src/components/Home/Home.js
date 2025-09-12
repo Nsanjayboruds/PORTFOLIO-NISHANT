@@ -82,7 +82,7 @@ function Home() {
                   <Spline scene="https://prod.spline.design/wusBdKcJteOBdL7Q/scene.splinecode" />
                 </div>
                 
-                {/* Floating elements for visual interest */}
+                
                 <div className="absolute w-32 h-32 bg-cyan-400/20 rounded-full -top-10 -left-8 animate-float"></div>
                 <div className="absolute w-24 h-24 bg-purple-400/20 rounded-full bottom-10 -right-6 animate-float delay-1000"></div>
                 <div className="absolute w-16 h-16 bg-pink-400/20 rounded-full top-1/2 -left-4 animate-float delay-500"></div>
@@ -90,7 +90,7 @@ function Home() {
             </Col>
           </Row>
           
-          {/* Scroll down arrow */}
+         
           <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-10">
             <button 
               onClick={scrollToNextSection}
