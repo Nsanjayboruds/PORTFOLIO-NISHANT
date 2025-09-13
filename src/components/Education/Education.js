@@ -17,6 +17,7 @@ function Education() {
 
     return (
         <section className="education-section relative min-h-screen overflow-hidden">
+        
             {/* Particle background */}
             <div className="particle-bg fixed top-0 left-0 w-full h-full -z-10">
                 <Particles
