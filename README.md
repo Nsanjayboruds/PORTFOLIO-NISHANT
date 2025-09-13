@@ -1,13 +1,13 @@
-# 🌟 PORTFOLIO 
+# 🌟 PORTFOLIO :-
 
 ---
 
-## 📖 About
+## 📖 About :-
 This is my **personal portfolio website** built using React, Tailwind CSS, and Vite. It highlights my skills, projects, and experience as a developer.
 
 ---
 
-## ✨ Features
+## ✨ Features :-
 
 - 🚀 Fast & responsive  
 - 🎨 Modern UI with animations  
@@ -17,7 +17,7 @@ This is my **personal portfolio website** built using React, Tailwind CSS, and V
 
 ---
 
-## 🛠️ Tech Stack
+## 🛠️ Tech Stack :-
 
 | Category     | Tools Used |
 |--------------|------------|
@@ -28,13 +28,13 @@ This is my **personal portfolio website** built using React, Tailwind CSS, and V
 
 ---
 
-## 🚀 Getting Started
+## 🚀 Getting Started :-
 
 ### Prerequisites
 - [Node.js](https://nodejs.org/) installed  
 - npm or yarn package manager  
 
-### Installation
+### Installation :-
 
 ```bash
 # Clone repository
@@ -51,7 +51,7 @@ npm Start
 
 Now open http://localhost:5173/
 
-🤝 Contributing
+🤝 Contributing :-
 
 Contributions are always welcome!
 
@@ -67,7 +67,7 @@ Open a Pull Request
 
 
 
-📄 License
+📄 License :-
 
 This project is licensed under the MIT License.
 You are free to use, modify, and distribute with attribution.
