@@ -10,43 +10,10 @@ import avatar from "../../Assets/avatarmy.jpg";
 
 function About() {
   const [isVisible, setIsVisible] = useState(false);
-  const [stats, setStats] = useState({
-    projects: 0,
-    experience: 0,
-    technologies: 0,
-    repositories: 0
-  });
 
   useEffect(() => {
     setIsVisible(true);
-    // Animate counters
-    const targets = { projects: 15, experience: 2, technologies: 20, repositories: 25 };
-    const duration = 1500;
-    const start = Date.now();
-
-    const animate = () => {
-      const now = Date.now();
-      const progress = Math.min((now - start) / duration, 1);
-
-      setStats({
-        projects: Math.floor(targets.projects * progress),
-        experience: (targets.experience * progress).toFixed(1),
-        technologies: Math.floor(targets.technologies * progress),
-        repositories: Math.floor(targets.repositories * progress)
-      });
-
-      if (progress < 1) requestAnimationFrame(animate);
-    };
-
-    animate();
   }, []);
-
-  const statsList = [
-    { label: "Projects Completed", value: stats.projects, suffix: "+" },
-    { label: "Years of Experience", value: stats.experience, suffix: "+" },
-    { label: "Technologies", value: stats.technologies, suffix: "+" },
-    { label: "Repositories", value: stats.repositories, suffix: "+" }
-  ];
 
   return (
     <section className="relative overflow-hidden min-h-screen">
@@ -58,50 +25,25 @@ function About() {
       {/* Foreground Content */}
       <Container fluid className="py-12 md:py-20 px-4">
         <Container>
-          {/* Professional Header Section */}
-          <Row className="justify-center mb-16">
-            <Col className="text-center stagger-item-1">
+          {/* Header Section */}
+          <Row className="justify-center mb-12">
+            <Col className="text-center">
               <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-8'}`}>
-                <h1 className="text-5xl md:text-7xl font-bold mb-6">
-                  <span className="text-white">About </span>
-                  <span className="text-transparent bg-gradient-to-r from-slate-200 to-slate-400 bg-clip-text font-bold text-6xl md:text-7xl">Me</span>
+                <h1 className=" text-[blue] text-4xl md:text-5xl font-bold mb-4">
+                  About <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500">Me</span>
                 </h1>
-                <p className="text-slate-400 max-w-3xl mx-auto text-lg leading-relaxed font-medium">
-                  I'm a passionate developer with expertise in AI, Machine Learning, and Full-Stack Development. Always driven to create innovative, scalable solutions.
+                <p className="text-gray-400 max-w-2xl mx-auto">
+                  Get to know my skills, tools, and passion for creating innovative solutions
                 </p>
               </div>
             </Col>
           </Row>
 
-          {/* Professional Stats Section */}
-          <Row className="justify-center mb-16 stagger-item-2">
-            <Col xs={12}>
-              <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                  {statsList.map((stat, idx) => (
-                    <div 
-                      key={idx}
-                      className="p-6 rounded-lg bg-slate-800/40 border border-slate-700 hover:border-slate-600 transition-all duration-300 transform hover:scale-105"
-                      style={{
-                        animation: `slideInUp 0.6s ease-out ${idx * 100}ms both`
-                      }}
-                    >
-                      <div className="text-4xl md:text-5xl font-bold text-white mb-3">
-                        {stat.value}{stat.suffix}
-                      </div>
-                      <p className="text-slate-400 font-medium text-center text-sm">{stat.label}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </Col>
-          </Row>
-
-          {/* Advanced Profile & About Card Section */}
-          <Row className="justify-center items-start mb-20 stagger-item-3">
+          {/* Profile & About Card Section */}
+          <Row className="justify-center items-start mb-20">
             <Col
               md={5}
-              className={`transition-all duration-700 delay-300 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'} py-6 flex justify-center`}
+              className={`transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} py-6 flex justify-center`}
             >
               <ProfileCard
                 name="NISHANT BORUDE"
@@ -136,24 +78,8 @@ function About() {
             </Col>
           </Row>
 
-          {/* Stats Section */}
-          <div className={`transition-all duration-700 delay-300 ${isVisible ? 'opacity-100' : 'opacity-0'} mb-20`}>
-            <Row className="gap-4 md:gap-0">
-              {statsList.map((stat, idx) => (
-                <Col md={3} sm={6} key={idx} className="mb-4">
-                  <div className="bg-gradient-to-br from-cyan-500/10 to-purple-500/10 backdrop-blur-lg rounded-xl p-6 text-center border border-cyan-500/20 hover:border-cyan-500/40 transition-all duration-300 transform hover:scale-105">
-                    <h3 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 mb-2">
-                      {stat.value}{stat.suffix}
-                    </h3>
-                    <p className="text-gray-400 text-sm md:text-base">{stat.label}</p>
-                  </div>
-                </Col>
-              ))}
-            </Row>
-          </div>
-
           {/* Skillset Section */}
-          <div className={`transition-all duration-700 delay-400 ${isVisible ? 'opacity-100' : 'opacity-0'} mb-20`}>
+          <div className={`transition-all duration-700 delay-300 ${isVisible ? 'opacity-100' : 'opacity-0'} mb-20`}>
             <div className="text-center mb-14">
               <h2 className=" text-[blue] text-3xl md:text-4xl font-bold mb-4">
                 Professional <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500">Skillset</span>

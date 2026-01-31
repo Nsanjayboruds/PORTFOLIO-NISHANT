@@ -1,0 +1,304 @@
+.App {
+  text-align: center;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Advanced Background Effects */
+.cosmic-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: linear-gradient(135deg, 
+    #0a0e27 0%, 
+    #1a1535 25%, 
+    #2d1b69 50%, 
+    #1a1535 75%, 
+    #0f0a1e 100%);
+  background-size: 400% 400%;
+  animation: cosmic-shift 20s ease infinite;
+}
+
+@keyframes cosmic-shift {
+  0% {
+    background-position: 0% 50%;
+    filter: hue-rotate(0deg) brightness(1);
+  }
+  25% {
+    background-position: 50% 50%;
+    filter: hue-rotate(15deg) brightness(1.1);
+  }
+  50% {
+    background-position: 100% 50%;
+    filter: hue-rotate(30deg) brightness(1.2);
+  }
+  75% {
+    background-position: 50% 50%;
+    filter: hue-rotate(15deg) brightness(1.1);
+  }
+  100% {
+    background-position: 0% 50%;
+    filter: hue-rotate(0deg) brightness(1);
+  }
+}
+
+/* Text Glow Effects */
+.text-glow {
+  text-shadow: 0 0 10px rgba(139, 92, 246, 0.8),
+               0 0 20px rgba(139, 92, 246, 0.6),
+               0 0 30px rgba(139, 92, 246, 0.4),
+               0 0 40px rgba(139, 92, 246, 0.2);
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    text-shadow: 0 0 10px rgba(139, 92, 246, 0.8),
+                 0 0 20px rgba(139, 92, 246, 0.6),
+                 0 0 30px rgba(139, 92, 246, 0.4);
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(236, 72, 153, 0.9),
+                 0 0 30px rgba(236, 72, 153, 0.7),
+                 0 0 40px rgba(236, 72, 153, 0.5);
+  }
+}
+
+/* Holographic Text Effect */
+.holographic-text {
+  background: linear-gradient(
+    90deg,
+    #00f5ff 0%,
+    #667eea 15%,
+    #a78bfa 30%,
+    #ec4899 45%,
+    #f093fb 60%,
+    #a78bfa 75%,
+    #00f5ff 100%
+  );
+  background-size: 300% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: holographic-flow 4s linear infinite;
+  filter: drop-shadow(0 0 15px rgba(102, 126, 234, 0.6)) 
+          drop-shadow(0 0 25px rgba(236, 72, 153, 0.4));
+}
+
+@keyframes holographic-flow {
+  0% {
+    background-position: 0% center;
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    background-position: 300% center;
+    filter: hue-rotate(360deg);
+  }
+}
+
+/* 3D Card Flip Effect */
+.card-3d {
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+.card-3d:hover {
+  transform: perspective(1000px) rotateY(10deg) rotateX(5deg) scale(1.05);
+}
+
+/* Neon Border Effect */
+.neon-border {
+  position: relative;
+  border: 2px solid transparent;
+  background: linear-gradient(#0a0e27, #0a0e27) padding-box,
+              linear-gradient(135deg, #00f5ff, #667eea, #ec4899, #f093fb, #00f5ff) border-box;
+  background-size: 400% 400%;
+  animation: neon-pulse 3s ease-in-out infinite, neon-rotate 8s linear infinite;
+}
+
+@keyframes neon-pulse {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(0, 245, 255, 0.6),
+                0 0 20px rgba(102, 126, 234, 0.5),
+                0 0 30px rgba(236, 72, 153, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 15px rgba(0, 245, 255, 0.9),
+                0 0 30px rgba(102, 126, 234, 0.8),
+                0 0 45px rgba(236, 72, 153, 0.7),
+                0 0 60px rgba(240, 147, 251, 0.5);
+  }
+}
+
+@keyframes neon-rotate {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 400% 50%;
+  }
+}
+
+/* Floating Animation */
+@keyframes floatUpDown {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-20px) rotate(2deg);
+  }
+  75% {
+    transform: translateY(20px) rotate(-2deg);
+  }
+}
+
+/* Advanced Button Hover */
+.btn-advanced {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+.btn-advanced::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.btn-advanced:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+/* Particle Effect Background */
+.particles-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Wave Animation */
+@keyframes wave {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(20deg);
+  }
+  75% {
+    transform: rotate(-15deg);
+  }
+}
+
+/* Glitch Effect */
+@keyframes glitch {
+  0% {
+    text-shadow: 2px 2px #00f5ff, -2px -2px #ec4899;
+  }
+  25% {
+    text-shadow: -2px 2px #00f5ff, 2px -2px #ec4899;
+  }
+  50% {
+    text-shadow: 2px -2px #00f5ff, -2px 2px #ec4899;
+  }
+  75% {
+    text-shadow: -2px -2px #00f5ff, 2px 2px #ec4899;
+  }
+  100% {
+    text-shadow: 2px 2px #00f5ff, -2px -2px #ec4899;
+  }
+}
+
+/* Aurora Background */
+@keyframes aurora {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.aurora-bg {
+  background: linear-gradient(
+    270deg,
+    rgba(6, 182, 212, 0.2),
+    rgba(139, 92, 246, 0.2),
+    rgba(236, 72, 153, 0.2)
+  );
+  background-size: 600% 600%;
+  animation: aurora 12s ease infinite;
+}
+
+/* Typing Cursor Effect */
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.typing-cursor {
+  animation: blink 1s step-end infinite;
+}
+
+/* Scale Bounce */
+@keyframes scaleBounce {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+/* Spotlight Effect */
+.spotlight {
+  position: relative;
+  overflow: hidden;
+}
+
+.spotlight::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.1) 0%,
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.5s;
+  pointer-events: none;
+}
+
+.spotlight:hover::after {
+  opacity: 1;
+}
+
+.animated-home-logo {
+  animation: floatUpDown 3s ease-in-out infinite;
+  transition: transform 0.3s ease;
+}

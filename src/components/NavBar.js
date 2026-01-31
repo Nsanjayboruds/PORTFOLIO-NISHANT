@@ -43,11 +43,23 @@ function NavBar() {
       expanded={expand}
       fixed="top"
       expand="md"
-      className={`transition-all duration-300 ${
+      className={`transition-all duration-500 ${
         navColour 
-          ? "bg-gray-900/95 backdrop-blur-md shadow-lg" 
-          : "bg-transparent"
+          ? "shadow-2xl neon-border" 
+          : ""
       } py-2`}
+      style={{
+        background: navColour
+          ? 'linear-gradient(135deg, rgba(10, 14, 39, 0.98) 0%, rgba(26, 21, 53, 0.98) 50%, rgba(45, 27, 105, 0.95) 100%)'
+          : 'rgba(10, 14, 39, 0.5)',
+        backdropFilter: 'blur(30px) saturate(200%)',
+        borderBottom: navColour 
+          ? '2px solid rgba(102, 126, 234, 0.4)' 
+          : '1px solid rgba(102, 126, 234, 0.1)',
+        boxShadow: navColour 
+          ? '0 8px 40px rgba(102, 126, 234, 0.3), 0 0 30px rgba(0, 245, 255, 0.15)' 
+          : 'none',
+      }}
     >
       <Container>
         <Navbar.Brand href="/" className="d-flex">
@@ -58,9 +70,9 @@ function NavBar() {
               loop
               muted
               playsInline
-              className="h-16 w-16 rounded-full object-cover border-2 border-transparent bg-gradient-to-r from-cyan-500 to-purple-500 p-0.5 shadow-lg shadow-cyan-500/20"
+              className="h-16 w-16 rounded-full object-cover border-3 border-transparent bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 p-0.5 shadow-lg shadow-cyan-500/30 hover:shadow-purple-500/40 transition-all duration-300 hover:scale-110"
             />
-            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-500 to-purple-500 opacity-70 blur-md -z-10"></div>
+            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 opacity-80 blur-lg -z-10 animate-pulse"></div>
           </div>
         </Navbar.Brand>
 
@@ -147,6 +159,17 @@ function NavBar() {
               >
                 {/* <CgFileDocument className="mr-1" />  */}
                 Education
+              </Nav.Link>
+            </Nav.Item>
+
+            <Nav.Item>
+              <Nav.Link
+                as={Link}
+                to="/contact"
+                onClick={() => updateExpanded(false)}
+                className="flex items-center text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 hover:bg-gray-800/50 mx-1"
+              >
+                Contact
               </Nav.Link>
             </Nav.Item>
 

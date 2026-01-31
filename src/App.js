@@ -3,6 +3,7 @@ import Preloader from "../src/components/Pre";
 import Home from "./components/Home/Home";
 import About from "./components/About/About";
 import Projects from "./components/Projects/Projects";
+import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import Resume from "./components/Resume/ResumeNew";
 import {
@@ -23,9 +24,10 @@ function App() {
   const [load, upadateLoad] = useState(true);
 
   useEffect(() => {
+    // Simulate loading time - loader displays during this period
     const timer = setTimeout(() => {
       upadateLoad(false);
-    }, 1200);
+    }, 2500); // Increased to 2.5 seconds for full loader display
 
     return () => clearTimeout(timer);
   }, []);
@@ -33,7 +35,8 @@ function App() {
   return (
     <Router>
       <Preloader load={load} />
-      <div className="App" id={load ? "no-scroll" : "scroll"}>
+      {/* Content only visible when loader finishes */}
+      <div className="App" style={{visibility: load ? 'hidden' : 'visible'}} id={load ? "no-scroll" : "scroll"}>
         <NavBar />
         <ScrollToTop />
         <Routes>
@@ -42,7 +45,8 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/resume" element={<Resume />} />
           <Route path="/education" element={<Education />} />
-           <Route path="/experience" element={<Experience />} />
+          <Route path="/experience" element={<Experience />} />
+          <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<Navigate to="/"/>} />
         </Routes>
         <Footer />

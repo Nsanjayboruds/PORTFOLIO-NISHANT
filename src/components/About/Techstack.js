@@ -9,6 +9,8 @@ import {
   DiPython,
   DiGit,
   DiJava,
+  DiDocker,
+  DiNginx,
 } from "react-icons/di";
 import {
   SiRedis,
@@ -16,8 +18,9 @@ import {
   SiNextdotjs,
   SiSolidity,
   SiPostgresql,
+  SiGithubactions,
+  SiDocker,
 } from "react-icons/si";
-import { TbBrandGolang } from "react-icons/tb";
 
 function Techstack() {
   // Technology data with names for tooltips
@@ -32,6 +35,11 @@ function Techstack() {
     { icon: <SiFirebase />, name: "Firebase" },
     { icon: <SiRedis />, name: "Redis" },
     { icon: <DiPython />, name: "Python" },
+    { icon: <DiDocker />, name: "Docker" },
+    { icon: <DiNginx />, name: "Nginx" },
+    { icon: <SiGithubactions />, name: "GitHub Actions" },
+    { icon: <div style={{fontSize: '2rem'}}>📦</div>, name: "Docker Compose" },
+    { icon: <div style={{fontSize: '2rem'}}>🖼️</div>, name: "ImageKit CDN" },
   ];
 
   return (

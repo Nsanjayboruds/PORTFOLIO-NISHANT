@@ -4,32 +4,46 @@ import Particles from '../Particles';
 
 function Experience() {
   const [isVisible, setIsVisible] = useState(false);
-  const experiences = [
-    {
-      title: 'Web Development Intern',
-      company: 'OctaNet Services Pvt Ltd',
-      date: 'Aug 10-2025 – Present · 1 mo',
-      location: 'Remote · India',
-      description: 'Selected for a 2-month internship focusing on live training and hands-on experience in web development with OctaNet Services Pvt Ltd.',
-      icon: '💻'
-    },
-    {
-      title: 'Open Source Contributor',
-      company: 'Open Source Connect · Internship',
-      date: 'Aug 2025 – Present · 1 mo',
-      location: 'Remote · India',
-      description: 'Selected as an official contributor for Open Source Connect India, a nationwide open-source collaboration program.',
-      icon: '🌐'
-    },
-    {
-      title: 'Contributor – GirlScript Summer of Code 2025',
-      company: 'GirlScript Summer of Code · Internship',
-      date: 'Jul 2025 – Present · 2 mos',
-      location: 'Remote · Remote',
-      description: 'Contributing to impactful open-source projects while enhancing technical skills and collaborating with mentors and fellow developers.',
-      icon: '👩‍💻'
-    },
-  ];
+ const experiences = [
+  {
+    title: 'Full Stack Developer Intern',
+    company: 'CommuSync',
+    date: 'Aug 2025 – Present · 1 mo',
+    location: 'Remote · India',
+    description:
+      'Working as a Full Stack Developer Intern on CommuSync, a collaborative communication platform. Contributing to frontend and backend development, feature implementation, bug fixes, and performance improvements.',
+    icon: '🚀'
+  },
+{
+  title: 'Open Source Contributor',
+  company: 'Keploy',
+  date: 'Aug 2025 – Present',
+  location: 'Remote · India',
+  description:
+    'Contributing to Keploy, an open-source API testing and regression platform. Working on bug fixes, improving documentation, and contributing code through pull requests.',
+  icon: '🧪',
+  prLink: 'https://github.com/keploy/keploy/pull/3624'
+},
+  {
+    title: 'Open Source Contributor',
+    company: 'FOSSASIA',
+    date: 'Aug 2025 – Present',
+    location: 'Remote · India',
+    description:
+      'Contributing to FOSSASIA open-source projects by submitting pull requests, fixing issues, and collaborating with maintainers and the open-source community.',
+    icon: '🌏',
+    prLink: 'https://github.com/fossasia/scrum_helper/pull/325' // add your actual PR number/link
+  },
+  {
+    title: 'Contributor – GirlScript Summer of Code 2025',
+    company: 'GirlScript Summer of Code · Internship',
+    date: 'Jul 2025 – Present · 2 mos',
+    location: 'Remote · India',
+    description:
+      'Contributing to impactful open-source projects while enhancing technical skills and collaborating with mentors and fellow developers.',
+    icon: '👩‍💻'
+  },
+];
 
   useEffect(() => {
     setIsVisible(true);

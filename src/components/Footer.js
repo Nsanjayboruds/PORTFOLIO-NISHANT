@@ -12,16 +12,22 @@ function Footer() {
   let year = date.getFullYear();
   
   return (
-    <Container fluid className="bg-gradient-to-b from-gray-900 to-black text-white py-12 px-4 md:px-8 footer">
+    <Container 
+      fluid 
+      className="text-white py-12 px-4 md:px-8 footer relative overflow-hidden bg-slate-900 border-t border-slate-800"
+      style={{
+        backdropFilter: 'blur(20px)'
+      }}
+    >
       <Row className="items-center">
         <Col md="4" className="mb-6 md:mb-0 text-center md:text-left">
-          <h3 className="text-lg font-semibold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-500">
+          <h3 className="text-sm font-medium text-slate-300">
             Designed and Developed by Nishant Borude
           </h3>
         </Col>
         <Col md="4" className="mb-6 md:mb-0 text-center">
-          <h3 className="text-lg font-semibold">
-            Copyright © {year} <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-500">NB</span>
+          <h3 className="text-sm font-medium text-slate-300">
+            Copyright © {year} <span className="text-white font-semibold">NB</span>
           </h3>
         </Col>
         <Col md="4" className="text-center md:text-right">
@@ -31,7 +37,16 @@ function Footer() {
                 href="https://github.com/Nsanjayboruds"
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-br from-gray-700 to-gray-800 text-white text-xl transition-all duration-300 hover:from-cyan-600 hover:to-purple-600 hover:shadow-lg hover:shadow-cyan-500/30 hover:scale-110"
+                className="flex items-center justify-center w-10 h-10 rounded-full text-slate-300 text-lg transition-all duration-300 hover:text-white hover:bg-slate-700 border border-slate-700 hover:border-slate-600"
+                style={{}}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = 'rgba(55, 65, 81, 0.5)';
+                  e.currentTarget.style.color = '#ffffff';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = 'transparent';
+                  e.currentTarget.style.color = 'rgba(203, 213, 225, 0.6)';
+                }}
               >
                 <AiFillGithub />
               </a>
@@ -41,7 +56,16 @@ function Footer() {
                 href="#"
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-br from-gray-700 to-gray-800 text-white text-xl transition-all duration-300 hover:from-cyan-600 hover:to-purple-600 hover:shadow-lg hover:shadow-cyan-500/30 hover:scale-110"
+                className="flex items-center justify-center w-10 h-10 rounded-full text-slate-300 text-lg transition-all duration-300 hover:text-white hover:bg-slate-700 border border-slate-700 hover:border-slate-600"
+                style={{}}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = 'rgba(55, 65, 81, 0.5)';
+                  e.currentTarget.style.color = '#ffffff';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = 'transparent';
+                  e.currentTarget.style.color = 'rgba(203, 213, 225, 0.6)';
+                }}
               >
                 <AiOutlineTwitter />
               </a>
@@ -51,7 +75,16 @@ function Footer() {
                 href="https://www.linkedin.com/in/nishant-borude-554293311/"
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-br from-gray-700 to-gray-800 text-white text-xl transition-all duration-300 hover:from-cyan-600 hover:to-purple-600 hover:shadow-lg hover:shadow-cyan-500/30 hover:scale-110"
+                className="flex items-center justify-center w-10 h-10 rounded-full text-slate-300 text-lg transition-all duration-300 hover:text-white hover:bg-slate-700 border border-slate-700 hover:border-slate-600"
+                style={{}}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = 'rgba(55, 65, 81, 0.5)';
+                  e.currentTarget.style.color = '#ffffff';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = 'transparent';
+                  e.currentTarget.style.color = 'rgba(203, 213, 225, 0.6)';
+                }}
               >
                 <FaLinkedinIn />
               </a>
@@ -61,7 +94,16 @@ function Footer() {
                 href="#"
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-br from-gray-700 to-gray-800 text-white text-xl transition-all duration-300 hover:from-cyan-600 hover:to-purple-600 hover:shadow-lg hover:shadow-cyan-500/30 hover:scale-110"
+                className="flex items-center justify-center w-10 h-10 rounded-full text-slate-300 text-lg transition-all duration-300 hover:text-white hover:bg-slate-700 border border-slate-700 hover:border-slate-600"
+                style={{}}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = 'rgba(55, 65, 81, 0.5)';
+                  e.currentTarget.style.color = '#ffffff';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = 'transparent';
+                  e.currentTarget.style.color = 'rgba(203, 213, 225, 0.6)';
+                }}
               >
                 <AiFillInstagram />
               </a>
@@ -69,12 +111,6 @@ function Footer() {
           </ul>
         </Col>
       </Row>
-      
-      {/* Decorative elements */}
-      <div className="absolute bottom-0 left-0 w-full overflow-hidden pointer-events-none">
-        <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-cyan-500 rounded-full filter blur-3xl opacity-10 animate-pulse"></div>
-        <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-purple-500 rounded-full filter blur-3xl opacity-10 animate-pulse delay-1000"></div>
-      </div>
     </Container>
   );
 }
