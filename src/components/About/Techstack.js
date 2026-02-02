@@ -8,7 +8,6 @@ import {
   DiMongodb,
   DiPython,
   DiGit,
-  DiJava,
   DiDocker,
   DiNginx,
 } from "react-icons/di";
@@ -16,10 +15,7 @@ import {
   SiRedis,
   SiFirebase,
   SiNextdotjs,
-  SiSolidity,
-  SiPostgresql,
   SiGithubactions,
-  SiDocker,
 } from "react-icons/si";
 
 function Techstack() {

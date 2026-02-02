@@ -53,7 +53,7 @@ function Footer() {
             </li>
             <li className="social-icons">
               <a
-                href="#"
+                href="https://twitter.com"
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="flex items-center justify-center w-10 h-10 rounded-full text-slate-300 text-lg transition-all duration-300 hover:text-white hover:bg-slate-700 border border-slate-700 hover:border-slate-600"
@@ -91,7 +91,7 @@ function Footer() {
             </li>
             <li className="social-icons">
               <a
-                href="#"
+                href="https://www.instagram.com"
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="flex items-center justify-center w-10 h-10 rounded-full text-slate-300 text-lg transition-all duration-300 hover:text-white hover:bg-slate-700 border border-slate-700 hover:border-slate-600"

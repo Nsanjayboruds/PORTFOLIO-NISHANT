@@ -4,10 +4,6 @@ import myImg from "../../Assets/avatarmy.jpg";
 import Tilt from "react-parallax-tilt";
 import { AiFillGithub, AiOutlineTwitter } from "react-icons/ai";
 import { FaLinkedinIn } from "react-icons/fa";
-import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
-import { ArrowDown } from "lucide-react";
-import { FaArrowDown } from "react-icons/fa";
 
 function Home2() {
   const [isVisible, setIsVisible] = useState(false);
@@ -100,7 +96,7 @@ function Home2() {
                 </li>
                 <li className="social-icons">
                   <a
-                    href="#"
+                    href="https://twitter.com"
                     target="_blank"
                     rel="noreferrer"
                     className="flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 text-white text-2xl transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-purple-500/30"

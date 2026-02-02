@@ -5,7 +5,6 @@ import FuzzyText from "../FuzzyText";
 import { useNavigate } from "react-router-dom";
 
 function ResumeNew() {
-  const [width, setWidth] = useState(1200);
   const [isVisible, setIsVisible] = useState(false);
   const navigate = useNavigate();
 
@@ -14,7 +13,6 @@ function ResumeNew() {
   const enableHover = true;
 
   useEffect(() => {
-    setWidth(window.innerWidth);
     setIsVisible(true);
   }, []);
 
