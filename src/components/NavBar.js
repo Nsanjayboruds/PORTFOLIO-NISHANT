@@ -35,36 +35,38 @@ function NavBar() {
       expanded={expand}
       fixed="top"
       expand="md"
-      className={`transition-all duration-500 ${
+      className={`transition-all duration-700 ${
         navColour 
-          ? "shadow-2xl neon-border" 
-          : ""
-      } py-2`}
-      style={{
-        background: navColour
-          ? 'linear-gradient(135deg, rgba(10, 14, 39, 0.98) 0%, rgba(26, 21, 53, 0.98) 50%, rgba(45, 27, 105, 0.95) 100%)'
-          : 'rgba(10, 14, 39, 0.5)',
-        backdropFilter: 'blur(30px) saturate(200%)',
-        borderBottom: navColour 
-          ? '2px solid rgba(102, 126, 234, 0.4)' 
-          : '1px solid rgba(102, 126, 234, 0.1)',
-        boxShadow: navColour 
-          ? '0 8px 40px rgba(102, 126, 234, 0.3), 0 0 30px rgba(0, 245, 255, 0.15)' 
-          : 'none',
-      }}
+          ? "py-2 backdrop-blur-2xl bg-black/60 border-b border-cyan-500/20 shadow-[0_8px_40px_rgba(0,0,0,0.5)]" 
+          : "py-4 bg-transparent"
+      }`}
     >
       <Container>
-        <Navbar.Brand href="/" className="d-flex">
-          <div className="relative">
-            <video
-              src={logoVideo}
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="h-16 w-16 rounded-full object-cover border-3 border-transparent bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 p-0.5 shadow-lg shadow-cyan-500/30 hover:shadow-purple-500/40 transition-all duration-300 hover:scale-110"
-            />
-            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 opacity-80 blur-lg -z-10 animate-pulse"></div>
+        <Navbar.Brand href="/" className="d-flex group">
+          <div className="flex items-center gap-4">
+            <div className="relative">
+              <div className="absolute inset-0 bg-cyan-500/20 blur-xl rounded-full group-hover:bg-cyan-500/40 transition-all duration-700"></div>
+              {logoVideo ? (
+                <video
+                  src={logoVideo}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="h-10 w-10 md:h-12 md:w-12 rounded-full object-cover relative z-10 border border-white/10 p-0.5"
+                  onError={(e) => {
+                    e.target.style.display = 'none';
+                  }}
+                />
+              ) : (
+                <div className="h-10 w-10 md:h-12 md:w-12 rounded-full bg-slate-900 border border-white/10 relative z-10 flex items-center justify-center text-white font-black italic">
+                  NB
+                </div>
+              )}
+            </div>
+            <span className="text-xl md:text-2xl font-black italic tracking-tighter text-white uppercase group-hover:text-cyan-400 transition-colors aatreyve-glow">
+              NISHANT_BORUDE
+            </span>
           </div>
         </Navbar.Brand>
 
@@ -82,99 +84,39 @@ function NavBar() {
         
         <Navbar.Collapse id="responsive-navbar-nav" className="justify-end">
           <Nav className="items-center" defaultActiveKey="#home">
-            <Nav.Item>
-              <Nav.Link 
-                as={Link} 
-                to="/" 
-                onClick={() => updateExpanded(false)}
-                className="flex items-center text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 hover:bg-gray-800/50 mx-1"
-              >
-               
-                Home
-              </Nav.Link>
-            </Nav.Item>
+            {[
+              { label: "Home", to: "/" },
+              { label: "About", to: "/about" },
+              { label: "Projects", to: "/project" },
+              { label: "Experience", to: "/experience" },
+              { label: "Education", to: "/education" },
+              { label: "Contact", to: "/contact" }
+            ].map((item) => (
+              <Nav.Item key={item.to}>
+                <Nav.Link 
+                  as={Link} 
+                  to={item.to}
+                  onClick={() => updateExpanded(false)}
+                  className={`relative flex items-center text-[10px] font-black uppercase tracking-[0.3em] px-4 py-2 mx-1 transition-all duration-500 overflow-hidden group ${
+                    location.pathname === item.to ? 'text-cyan-400' : 'text-slate-400 hover:text-white'
+                  }`}
+                >
+                  <span className="relative z-10">{item.label}</span>
+                  <div className={`absolute bottom-0 left-0 h-[2px] bg-cyan-500 transition-all duration-500 ${
+                    location.pathname === item.to ? 'w-full' : 'w-0 group-hover:w-full'
+                  }`}></div>
+                </Nav.Link>
+              </Nav.Item>
+            ))}
 
-            <Nav.Item>
-              <Nav.Link
-                as={Link}
-                to="/about"
-                onClick={() => updateExpanded(false)}
-                className="flex items-center text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 hover:bg-gray-800/50 mx-1"
-              >
-                {/* <AiOutlineUser className="mr-1" />  */}
-                About
-              </Nav.Link>
-            </Nav.Item>
-
-            <Nav.Item>
-              <Nav.Link
-                as={Link}
-                to="/project"
-                onClick={() => updateExpanded(false)}
-                className="flex items-center text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 hover:bg-gray-800/50 mx-1"
-              >
-                {/* <AiOutlineFundProjectionScreen className="mr-1" /> */}
-                 Projects
-              </Nav.Link>
-            </Nav.Item>
-
-            <Nav.Item>
-              <Nav.Link
-                as={Link}
-                to="/resume"
-                onClick={() => updateExpanded(false)}
-                className="flex items-center text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 hover:bg-gray-800/50 mx-1"
-              >
-                {/* <CgFileDocument className="mr-1" /> */}
-                 Resume
-              </Nav.Link>
-            </Nav.Item>
-            
-            <Nav.Item>
-              <Nav.Link
-                as={Link}
-                to="/experience"
-                onClick={() => updateExpanded(false)}
-                className="flex items-center text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 hover:bg-gray-800/50 mx-1"
-              >
-                {/* <CgFileDocument className="mr-1" />  */}
-                Experience
-              </Nav.Link>
-            </Nav.Item>
-
-            <Nav.Item>
-              <Nav.Link
-                as={Link}
-                to="/education"
-                onClick={() => updateExpanded(false)}
-                className="flex items-center text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 hover:bg-gray-800/50 mx-1"
-              >
-                {/* <CgFileDocument className="mr-1" />  */}
-                Education
-              </Nav.Link>
-            </Nav.Item>
-
-            <Nav.Item>
-              <Nav.Link
-                as={Link}
-                to="/contact"
-                onClick={() => updateExpanded(false)}
-                className="flex items-center text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 hover:bg-gray-800/50 mx-1"
-              >
-                Contact
-              </Nav.Link>
-            </Nav.Item>
-
-            <Nav.Item className="fork-btn ml-2">
+            <Nav.Item className="fork-btn md:ml-6">
               <Button
                 href="https://github.com/Nsanjayboruds/change"
                 target="_blank"
-                className="fork-btn-inner bg-gradient-to-r from-cyan-500 to-purple-500 border-0 text-white flex items-center px-4 py-2 rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/30 hover:scale-105"
+                className="bg-white hover:bg-cyan-400 text-black border-0 px-6 py-2 rounded-lg text-[10px] font-black uppercase tracking-[0.2em] flex items-center gap-2 transition-all duration-500 shadow-[0_0_20px_rgba(0,245,255,0.2)] hover:shadow-[0_0_30px_rgba(0,245,255,0.6)]"
               >
-                <CgGitFork className="mr-1" />
-                 ⭐
-                {/* <AiFillStar className="mr-1" /> */}
-                Star
+                <CgGitFork />
+                STAR_REPO
               </Button>
             </Nav.Item>
           </Nav>

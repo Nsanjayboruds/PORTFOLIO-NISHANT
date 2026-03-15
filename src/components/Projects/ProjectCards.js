@@ -3,6 +3,7 @@ import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import { CgWebsite } from "react-icons/cg";
 import { BsGithub } from "react-icons/bs";
+import { motion } from "framer-motion";
 
 function ProjectCards(props) {
   const [isHovered, setIsHovered] = useState(false);
@@ -17,156 +18,94 @@ function ProjectCards(props) {
   };
 
   return (
-    <Card 
-      className="project-card-view border-0 backdrop-blur-lg overflow-hidden transition-all duration-500 transform relative glass-effect"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      onMouseMove={handleMouseMove}
-      style={{ 
-        height: '100%',
-        background: 'rgba(17, 25, 40, 0.85)',
-        border: isHovered ? '2px solid rgba(102, 126, 234, 0.6)' : '1px solid rgba(102, 126, 234, 0.2)',
-        transform: isHovered ? 'translateY(-15px) scale(1.05) rotateZ(1deg)' : 'translateY(0) scale(1)',
-        boxShadow: isHovered 
-          ? '0 30px 60px rgba(102, 126, 234, 0.4), 0 0 80px rgba(0, 242, 254, 0.3), inset 0 0 30px rgba(102, 126, 234, 0.1)' 
-          : '0 10px 30px rgba(0, 0, 0, 0.5)',
-        transition: 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)'
-      }}
+    <motion.div
+      whileHover={{ scale: 1.02 }}
+      transition={{ type: "spring", stiffness: 300, damping: 20 }}
+      className="h-full"
     >
-      {/* Animated gradient border effect */}
-      <div 
-        className="position-absolute top-0 left-0 w-100 h-100 opacity-0 transition-opacity duration-500"
-        style={{
-          opacity: isHovered ? 0.8 : 0,
-          background: `radial-gradient(circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(102, 126, 234, 0.6), rgba(0, 242, 254, 0.3) 40%, transparent 80%)`,
-          pointerEvents: 'none',
-          zIndex: 1
-        }}
-      ></div>
-
-      <div className="overflow-hidden position-relative">
-        <Card.Img 
-          variant="top" 
-          src={props.imgPath} 
-          alt="card-img" 
-          className="transition-all duration-700"
-          style={{ 
-            transform: isHovered ? 'scale(1.1) rotate(2deg)' : 'scale(1)',
-            filter: isHovered ? 'brightness(1.2) contrast(1.1)' : 'brightness(1)',
-          }}
-        />
-        {/* Image overlay gradient */}
+      <Card 
+        className="h-full border-0 !bg-slate-950/60 backdrop-blur-xl absolute-dark-card forced-glass-blur overflow-hidden transition-all duration-700 group hover:!border-cyan-500/50 shadow-2xl"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        onMouseMove={handleMouseMove}
+      >
+        {/* Animated Scanline Effect */}
+        <div className="absolute inset-0 pointer-events-none opacity-20 z-10 bg-[linear-gradient(rgba(0,0,0,0)_50%,rgba(0,245,255,0.05)_50%)] bg-[length:100%_4px]"></div>
+        
+        {/* Dynamic Background Glow */}
         <div 
-          className="position-absolute top-0 left-0 w-100 h-100 transition-opacity duration-300"
+          className="absolute inset-0 opacity-0 group-hover:opacity-30 transition-opacity duration-700 z-0"
           style={{
-            background: 'linear-gradient(to bottom, transparent, rgba(0,0,0,0.7))',
-            opacity: isHovered ? 1 : 0.5
+            background: `radial-gradient(circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(0, 245, 255, 0.2) 0%, transparent 60%)`,
           }}
         ></div>
-      </div>
-      
-      <Card.Body className="d-flex flex-column position-relative" style={{ zIndex: 2 }}>
-        <Card.Title 
-          className="text-xl font-bold mb-3 transition-all duration-300 gradient-text"
-          style={{
-            fontSize: '1.4rem',
-            fontWeight: 700,
-            animation: isHovered ? 'glow-text 1.5s ease-in-out infinite' : 'none'
-          }}
-        >
-          {props.title}
-        </Card.Title>
+
+        <div className="relative overflow-hidden aspect-video border-b border-white/5">
+          {props.imgPath && (
+            <Card.Img 
+              variant="top" 
+              src={props.imgPath} 
+              alt="project-img" 
+              className="w-full h-full object-cover transition-all duration-1000 group-hover:scale-105 group-hover:blur-[1px] opacity-80 group-hover:opacity-100"
+            />
+          )}
+          {/* Cinematic Vignette */}
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
+          
+          {/* Diagnostic Pulse Overlay */}
+          <div className="absolute top-4 right-4 flex items-center gap-2 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+             <div className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse shadow-[0_0_8px_#00f5ff]"></div>
+             <span className="text-[7px] font-black text-cyan-400 tracking-[0.3em] uppercase">SYSTEM_LINK: ACTIVE</span>
+          </div>
+        </div>
         
-        <Card.Text className="text-gray-300 flex-grow-1 transition-colors duration-300" 
-                   style={{ 
-                     textAlign: "justify",
-                     color: isHovered ? '#e5e7eb' : '#d1d5db'
-                   }}>
-          {props.description}
-        </Card.Text>
-        
-        <div className="mt-auto pt-3">
-          <div className="d-flex flex-wrap gap-2">
+        <Card.Body className="relative z-20 p-6 flex flex-col items-start gap-4 !bg-transparent">
+          <div className="w-full">
+            <div className="flex items-center justify-between mb-4">
+               <span className="text-[7px] font-mono text-cyan-500/50 tracking-tighter">DATA_NODE: 0x{Math.floor(Math.random() * 0xFFFF).toString(16).toUpperCase().padStart(4, '0')}</span>
+               <span className="w-1 h-1 rounded-full bg-cyan-500/30"></span>
+            </div>
+            <Card.Title 
+              className={`text-2xl font-black !text-white italic tracking-tighter uppercase mb-3 aatreyve-glow transition-transform duration-500 ${isHovered ? 'glitch-text -translate-x-1' : ''} high-contrast-text`}
+              data-text={props.title}
+            >
+              {props.title}
+            </Card.Title>
+            
+            <Card.Text className="!text-slate-400 text-xs leading-relaxed line-clamp-3 transition-colors group-hover:!text-slate-200 font-medium high-contrast-text">
+              {props.description}
+            </Card.Text>
+          </div>
+          
+          <div className="mt-auto w-full pt-6 flex flex-wrap gap-3">
             <Button 
-              variant="outline-light" 
               href={props.ghLink} 
               target="_blank"
-              className="d-flex align-items-center gap-1 border-2 transition-all duration-300 position-relative overflow-hidden"
-              style={{ 
-                borderRadius: '25px',
-                padding: '0.6rem 1.2rem',
-                borderColor: '#8b5cf6',
-                color: 'white',
-                background: 'rgba(139, 92, 246, 0.1)'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.background = 'linear-gradient(135deg, #8b5cf6, #a855f7)';
-                e.currentTarget.style.borderColor = '#a855f7';
-                e.currentTarget.style.transform = 'translateY(-2px)';
-                e.currentTarget.style.boxShadow = '0 10px 25px rgba(139, 92, 246, 0.4)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.background = 'rgba(139, 92, 246, 0.1)';
-                e.currentTarget.style.borderColor = '#8b5cf6';
-                e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.boxShadow = 'none';
-              }}
+              className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-3 !bg-cyan-500/10 border !border-cyan-500/30 !text-cyan-400 font-black text-[9px] tracking-[0.2em] uppercase rounded-lg hover:!bg-cyan-500 hover:!text-black hover:shadow-[0_0_15px_rgba(0,245,255,0.4)] transition-all duration-500 !border-0"
             >
-              <BsGithub className="text-lg" /> 
-              <span>{props.isBlog ? "Blog" : "GitHub"}</span>
+              <BsGithub className="text-sm" /> 
+              {props.isBlog ? "SOURCE_LINK" : "VAULT_ACCESS"}
             </Button>
 
             {!props.isBlog && props.demoLink && (
               <Button
-                variant="outline-light"
                 href={props.demoLink}
                 target="_blank"
-                className="d-flex align-items-center gap-1 border-2 transition-all duration-300 position-relative overflow-hidden"
-                style={{ 
-                  borderRadius: '25px',
-                  padding: '0.6rem 1.2rem',
-                  borderColor: '#ec4899',
-                  color: 'white',
-                  background: 'rgba(236, 72, 153, 0.1)',
-                  marginLeft: '0'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.background = 'linear-gradient(135deg, #ec4899, #f472b6)';
-                  e.currentTarget.style.borderColor = '#f472b6';
-                  e.currentTarget.style.transform = 'translateY(-2px)';
-                  e.currentTarget.style.boxShadow = '0 10px 25px rgba(236, 72, 153, 0.4)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.background = 'rgba(236, 72, 153, 0.1)';
-                  e.currentTarget.style.borderColor = '#ec4899';
-                  e.currentTarget.style.transform = 'translateY(0)';
-                  e.currentTarget.style.boxShadow = 'none';
-                }}
+                className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-3 !bg-purple-500/10 border !border-purple-500/30 !text-purple-400 font-black text-[9px] tracking-[0.2em] uppercase rounded-lg hover:!bg-purple-600 hover:!text-white hover:shadow-[0_0_15px_rgba(191,0,255,0.4)] transition-all duration-500"
               >
-                <CgWebsite className="text-lg" />
-                <span>Live Demo</span>
+                <CgWebsite className="text-sm" />
+                LIVE_DATA
               </Button>
             )}
           </div>
-        </div>
-      </Card.Body>
-      
-      {/* Shimmer effect on hover */}
-      <div 
-        className="position-absolute top-0 start-0 w-100 h-100 transition-opacity duration-500"
-        style={{
-          opacity: isHovered ? 1 : 0,
-          background: 'linear-gradient(110deg, transparent 40%, rgba(255, 255, 255, 0.05) 50%, transparent 60%)',
-          backgroundSize: '200% 100%',
-          animation: isHovered ? 'shimmer 2s infinite' : 'none',
-          pointerEvents: 'none',
-          zIndex: 3
-        }}
-      ></div>
-    </Card>
+        </Card.Body>
+
+        {/* Edge Highlight */}
+        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-cyan-500/40 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-700"></div>
+        <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-purple-500/40 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-700"></div>
+      </Card>
+    </motion.div>
   );
 }
-
-
 
 export default ProjectCards;

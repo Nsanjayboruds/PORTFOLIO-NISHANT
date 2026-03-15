@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Preloader from "../src/components/Pre";
+import Preloader from "./components/Pre";
 import Home from "./components/Home/Home";
 import About from "./components/About/About";
 import Projects from "./components/Projects/Projects";
@@ -19,6 +19,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Education from "./components/Education/Education";
 import Experience from "./components/Exoerience/Experience";
 import NavBar from "./components/NavBar";
+import CustomCursor from "./components/CustomCursor";
+import RouteTransition from "./components/RouteTransition";
 
 function App() {
   const [load, upadateLoad] = useState(true);
@@ -34,6 +36,8 @@ function App() {
 
   return (
     <Router>
+      <CustomCursor />
+      <RouteTransition />
       <Preloader load={load} />
       {/* Content only visible when loader finishes */}
       <div className="App" style={{visibility: load ? 'hidden' : 'visible'}} id={load ? "no-scroll" : "scroll"}>

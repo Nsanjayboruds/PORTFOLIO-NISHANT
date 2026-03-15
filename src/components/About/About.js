@@ -49,152 +49,131 @@ function About() {
   ];
 
   return (
-    <section className="relative overflow-hidden min-h-screen">
+    <section className="relative overflow-hidden min-h-screen bg-aatreyve">
       {/* Background Particles */}
-      <div className="fixed top-0 left-0 w-full h-full -z-10">
-        <Particles />
+      <div className="fixed top-0 left-0 w-full h-full -z-10 opacity-50">
+        <Particles 
+          particleColors={["#00f5ff", "#bf00ff"]}
+          particleCount={60}
+          speed={0.1}
+        />
       </div>
 
       {/* Foreground Content */}
       <Container fluid className="py-12 md:py-20 px-4">
         <Container>
           {/* Professional Header Section */}
-          <Row className="justify-center mb-16">
+          <Row className="justify-center mb-20">
             <Col className="text-center stagger-item-1">
-              <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-8'}`}>
-                <h1 className="text-5xl md:text-7xl font-bold mb-6">
-                  <span className="text-white">About </span>
-                  <span className="text-transparent bg-gradient-to-r from-slate-200 to-slate-400 bg-clip-text font-bold text-6xl md:text-7xl">Me</span>
+              <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-12'}`}>
+                <h1 className="text-5xl md:text-7xl font-black mb-8 tracking-tighter uppercase">
+                  <span className="text-white opacity-40 block text-sm uppercase tracking-[0.5em] mb-4">Identity_Matrix</span>
+                  PROFILE <span className="text-transparent bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text aatreyve-glow-strong">PROTOCOL</span>
                 </h1>
-                <p className="text-slate-400 max-w-3xl mx-auto text-lg leading-relaxed font-medium">
-                  I'm a passionate developer with expertise in AI, Machine Learning, and Full-Stack Development. Always driven to create innovative, scalable solutions.
+                <p className="text-slate-400 max-w-4xl mx-auto text-lg md:text-xl leading-relaxed font-light">
+                  Synthesis of intelligence, creativity, and engineering. Architecting scalable solutions across the full digital spectrum.
                 </p>
               </div>
             </Col>
           </Row>
 
-          {/* Professional Stats Section */}
-          <Row className="justify-center mb-16 stagger-item-2">
-            <Col xs={12}>
-              <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                  {statsList.map((stat, idx) => (
-                    <div 
-                      key={idx}
-                      className="p-6 rounded-lg bg-slate-800/40 border border-slate-700 hover:border-slate-600 transition-all duration-300 transform hover:scale-105"
-                      style={{
-                        animation: `slideInUp 0.6s ease-out ${idx * 100}ms both`
-                      }}
-                    >
-                      <div className="text-4xl md:text-5xl font-bold text-white mb-3">
-                        {stat.value}{stat.suffix}
-                      </div>
-                      <p className="text-slate-400 font-medium text-center text-sm">{stat.label}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </Col>
-          </Row>
-
           {/* Advanced Profile & About Card Section */}
-          <Row className="justify-center items-start mb-20 stagger-item-3">
+          <Row className="justify-center items-stretch mb-32 stagger-item-3">
             <Col
               md={5}
-              className={`transition-all duration-700 delay-300 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'} py-6 flex justify-center`}
+              className={`transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'} flex justify-center`}
             >
               <ProfileCard
                 name="NISHANT BORUDE"
-                title="FULL STACK DEVELOPER"
-                handle="NishantBorude"
-                status="Available for opportunities"
-                statusColor="bg-green-500"
-                contactText="Get In Touch"
+                title="ADVANCED DEVELOPER"
+                handle="Nishant_Borude"
+                status="Active_Substrate"
+                statusColor="bg-cyan-500"
+                contactText="INITIATE_COLLAB"
                 avatarUrl={avatar}
                 showUserInfo={true}
                 enableTilt={true}
                 enableMobileTilt={false}
                 onContactClick={() => window.open('https://github.com/Nsanjayboruds', '_blank')}
-                className="w-full max-w-md shadow-2xl transform hover:scale-[1.02] transition-transform duration-300"
-                nameClassName="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-500"
-                titleClassName="text-gray-300"
-                handleClassName="text-cyan-400"
+                className="w-full h-full shadow-2xl"
+                nameClassName="text-2xl font-black bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-500 tracking-tighter"
+                titleClassName="text-gray-400 font-bold tracking-widest text-[10px]"
+                handleClassName="text-cyan-400/70"
               />
             </Col>
             
             <Col
               md={7}
-              className={`transition-all duration-700 delay-100 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'} py-6`}
+              className={`transition-all duration-1000 delay-500 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'}`}
             >
-              <div className="bg-gray-800/40 backdrop-blur-lg rounded-2xl p-6 md:p-8 shadow-xl border border-gray-700/50">
-                <h2 className="text-2xl font-semibold mb-6 text-gray-200 flex items-center">
-                  <span className="w-1.5 h-6 bg-gradient-to-b from-purple-500 to-pink-500 rounded-full mr-3"></span>
-                  Who I Am
-                </h2>
+              <div className="glass-container h-full p-8 md:p-12 border-purple-500/10 hover:border-purple-500/30 transition-all flex flex-col">
+                <div className="flex items-center gap-4 mb-10">
+                  <div className="w-12 h-px bg-gradient-to-r from-purple-500 to-transparent"></div>
+                  <h2 className="text-xs font-bold uppercase tracking-[0.6em] text-purple-400">Biological_Log</h2>
+                </div>
                 <Aboutcard />
               </div>
             </Col>
           </Row>
 
-          {/* Stats Section */}
-          <div className={`transition-all duration-700 delay-300 ${isVisible ? 'opacity-100' : 'opacity-0'} mb-20`}>
-            <Row className="gap-4 md:gap-0">
+          {/* Diagnostic Stats Grid */}
+          <div className={`transition-all duration-1000 delay-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'} mb-32`}>
+            <Row className="gap-6 md:gap-0">
               {statsList.map((stat, idx) => (
-                <Col md={3} sm={6} key={idx} className="mb-4">
-                  <div className="bg-gradient-to-br from-cyan-500/10 to-purple-500/10 backdrop-blur-lg rounded-xl p-6 text-center border border-cyan-500/20 hover:border-cyan-500/40 transition-all duration-300 transform hover:scale-105">
-                    <h3 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 mb-2">
+                <Col md={3} sm={6} key={idx} className="mb-6 md:mb-0">
+                  <div className="cyber-card text-center group">
+                    <div className="text-xs font-bold uppercase tracking-widest text-slate-500 mb-4 opacity-70 group-hover:text-cyan-400 transition-colors">Data_Point_{idx + 1}</div>
+                    <h3 className="text-4xl md:text-6xl font-black text-white aatreyve-glow transition-all duration-500 group-hover:scale-110 mb-2">
                       {stat.value}{stat.suffix}
                     </h3>
-                    <p className="text-gray-400 text-sm md:text-base">{stat.label}</p>
+                    <p className="text-slate-400 text-[10px] uppercase font-bold tracking-[0.2em]">{stat.label}</p>
                   </div>
                 </Col>
               ))}
             </Row>
           </div>
 
-          {/* Skillset Section */}
-          <div className={`transition-all duration-700 delay-400 ${isVisible ? 'opacity-100' : 'opacity-0'} mb-20`}>
-            <div className="text-center mb-14">
-              <h2 className=" text-[blue] text-3xl md:text-4xl font-bold mb-4">
-                Professional <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500">Skillset</span>
-              </h2>
-              <p className="text-gray-400 max-w-2xl mx-auto">
-                Technologies I specialize in and use to bring ideas to life
-              </p>
-            </div>
-            <div className="bg-gray-800/40 backdrop-blur-lg rounded-2xl p-6 md:p-8 shadow-xl border border-gray-700/50">
-              <Techstack />
-            </div>
-          </div>
 
-          {/* Tools Section */}
-          <div className={`transition-all duration-700 delay-500 ${isVisible ? 'opacity-100' : 'opacity-0'} mb-20`}>
-            <div className="text-center mb-14">
-              <h2 className=" text-[blue] text-3xl md:text-4xl font-bold mb-4">
-                Development <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500">Tools</span>
-              </h2>
-              <p className="text-gray-400 max-w-2xl mx-auto">
-                Tools and environments that power my development workflow
-              </p>
-            </div>
-            <div className="bg-gray-800/40 backdrop-blur-lg rounded-2xl p-6 md:p-8 shadow-xl border border-gray-700/50">
-              <Toolstack />
-            </div>
-          </div>
 
-          {/* GitHub Section */}
-          <div className={`transition-all duration-700 delay-700 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
-            <div className="text-center mb-14">
-              <h2 className=" text-[blue] text-3xl md:text-4xl font-bold mb-4">
-                My <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500">Code</span> Journey
-              </h2>
-              <p className="text-gray-400  max-w-2xl mx-auto">
-                Exploring my contributions, projects, and coding activity
-              </p>
-            </div>
-            <div className="bg-gray-800/40 backdrop-blur-lg rounded-2xl p-6 md:p-8 shadow-xl border border-gray-700/50">
-              <Github />
-            </div>
+          {/* Skillset & Tools Sections */}
+          <div className={`transition-all duration-1000 delay-700 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+            <Row>
+              <Col md={12} className="mb-24">
+                <div className="text-center mb-16">
+                  <h2 className="text-3xl md:text-5xl font-black mb-4 tracking-tight uppercase">
+                    TECHNICAL <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-500 aatreyve-glow-strong">SUBSTRATES</span>
+                  </h2>
+                  <p className="text-gray-500 uppercase tracking-[0.3em] text-[10px] font-bold">Primary Specializations_</p>
+                </div>
+                <div className="glass-container p-8 md:p-14 border-cyan-500/10">
+                  <Techstack />
+                </div>
+              </Col>
+
+              <Col md={12} className="mb-24">
+                <div className="text-center mb-16">
+                  <h2 className="text-3xl md:text-5xl font-black mb-4 tracking-tight uppercase">
+                    OPERATIONAL <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500 aatreyve-glow-strong">FRAMEWORKS</span>
+                  </h2>
+                  <p className="text-gray-500 uppercase tracking-[0.3em] text-[10px] font-bold">Standard Tooling_</p>
+                </div>
+                <div className="glass-container p-8 md:p-14 border-purple-500/10">
+                  <Toolstack />
+                </div>
+              </Col>
+
+              <Col md={12} className="mb-20">
+                <div className="text-center mb-16">
+                  <h2 className="text-3xl md:text-5xl font-black mb-4 tracking-tight uppercase">
+                    DEVELOPMENT <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-orange-400 aatreyve-glow-strong">TELEMETRY</span>
+                  </h2>
+                  <p className="text-gray-500 uppercase tracking-[0.3em] text-[10px] font-bold">Activity_Log (GitHub)_</p>
+                </div>
+                <div className="glass-container p-8 md:p-14 border-pink-500/10">
+                  <Github />
+                </div>
+              </Col>
+            </Row>
           </div>
         </Container>
       </Container>

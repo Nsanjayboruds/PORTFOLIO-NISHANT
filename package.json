@@ -4,6 +4,8 @@
   "private": true,
   "dependencies": {
     "@react-pdf/renderer": "^3.1.8",
+    "@react-three/drei": "^9.88.0",
+    "@react-three/fiber": "^8.13.0",
     "@splinetool/react-spline": "^4.1.0",
     "@splinetool/runtime": "^1.10.51",
     "@tailwindcss/vite": "^4.1.11",
@@ -29,6 +31,7 @@
     "react-tooltip": "^4.5.1",
     "react-tsparticles": "^1.42.2",
     "react-vertical-timeline-component": "^3.5.3",
+    "three": "^0.156.1",
     "typewriter-effect": "^2.22.0",
     "web-vitals": "^2.1.4",
     "webpack": "^5.101.0",

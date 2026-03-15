@@ -16,83 +16,80 @@ function Education() {
     }, []);
 
     return (
-        <section className="education-section relative min-h-screen overflow-hidden">
+        <section className="relative min-h-screen overflow-hidden bg-aatreyve">
+            {/* Cinematic Cyber Background */}
+            <div className="absolute inset-0 bg-gradient-to-tr from-slate-950 via-indigo-950 to-slate-950 opacity-80"></div>
         
             {/* Particle background */}
-            <div className="particle-bg fixed top-0 left-0 w-full h-full -z-10">
+            <div className="fixed top-0 left-0 w-full h-full -z-10 opacity-40">
                 <Particles
-                    particleColors={["#8b5cf6", "#ec4899", "#ffffff"]}
-                    particleCount={200}
-                    particleSpread={10}
-                    speed={0.1}
-                    particleBaseSize={100}
-                    moveParticlesOnHover={true}
-                    alphaParticles={false}
-                    disableRotation={false}
+                    particleColors={["#0ea5e9", "#8b5cf6"]}
+                    particleCount={120}
+                    speed={0.15}
                 />
             </div>
 
             {/* Foreground content */}
-            <div className="education-content-wrapper py-16 md:py-24 px-4">
-                <div className={`transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-8'} text-center mb-16`}>
-                    <h2 className="text-4xl md:text-5xl font-bold mb-4">
-                        My <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500">Education</span>
-                    </h2>
-                    <p className="text-gray-300 max-w-2xl mx-auto text-lg">
-                        My academic journey and qualifications that shaped my technical expertise
+            <div className="py-24 px-4 relative z-10">
+                <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-12'} text-center mb-24`}>
+                    <h1 className="text-5xl md:text-7xl font-black mb-8 tracking-tighter uppercase">
+                        <span className="text-white opacity-40 block text-sm uppercase tracking-[0.5em] mb-4">Academic_Archives</span>
+                        EDUCATION <span className="text-transparent bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text aatreyve-glow-strong">LOGS</span>
+                    </h1>
+                    <p className="text-slate-400 max-w-4xl mx-auto text-lg md:text-xl leading-relaxed font-light">
+                        Chronological record of academic deployments and technical specialization history.
                     </p>
                 </div>
 
                 <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
-                    <VerticalTimeline lineColor="linear-gradient(to bottom, #8b5cf6, #ec4899)">
+                    <VerticalTimeline lineColor="rgba(0, 245, 255, 0.1)">
                         <VerticalTimelineElement
                             className="vertical-timeline-element--education"
                             date="2023 - 2027"
                             contentStyle={{
-                                background: "rgba(255, 255, 255, 0.1)",
-                                backdropFilter: "blur(12px)",
+                                background: "rgba(15, 23, 42, 0.6)",
+                                backdropFilter: "blur(20px)",
                                 color: "#fff",
-                                border: "1px solid rgba(255, 255, 255, 0.1)",
-                                borderRadius: "16px",
-                                boxShadow: "0 10px 25px rgba(0, 0, 0, 0.2)",
+                                border: "1px solid rgba(0, 245, 255, 0.1)",
+                                borderRadius: "20px",
+                                boxShadow: "none",
+                                padding: "0"
                             }}
                             contentArrowStyle={{ 
-                                borderRight: "7px solid rgba(139, 92, 246, 0.3)" 
+                                borderRight: "7px solid rgba(0, 245, 255, 0.1)" 
                             }}
                             iconStyle={{
-                                background: "linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%)",
-                                color: "#fff",
-                                boxShadow: "0 0 0 4px rgba(139, 92, 246, 0.3)",
+                                background: "#0f172a",
+                                color: "#00f5ff",
+                                boxShadow: "0 0 0 4px rgba(0, 245, 255, 0.1)",
                             }}
-                            icon={<FaGraduationCap className="text-xl" />}
+                            icon={<FaGraduationCap />}
                             visible={true}
                         >
-                            <div className="education-card-content">
-                                <h3 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">
-                                    B.Tech in Computer Science and Engineering
-                                </h3>
-                                <h4 className="text-lg font-semibold text-gray-200 mt-2">
-                                    GH Raisoni College of Engineering, Jalgaon
-                                </h4>
-                                <div className="flex items-center mt-3 text-sm text-gray-400">
-                                    <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                                    </svg>
-                                    2023 - 2027 (Expected)
+                            <div className="p-8 group cyber-card">
+                                <div className="flex justify-between items-center mb-6 border-b border-white/5 pb-4">
+                                  <span className="text-[10px] font-black uppercase tracking-[0.3em] text-cyan-400">SESSION_B.TECH</span>
+                                  <span className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-500 group-hover:text-purple-400 transition-colors">2023 - 2027 (EST)</span>
                                 </div>
-                                <ul className="timeline-points mt-4 space-y-2">
-                                    <li className="flex items-center">
-                                        <span className="w-2 h-2 bg-purple-400 rounded-full mr-3"></span>
-                                        CGPA: 8.12 (Till 4th Semester)
+
+                                <h3 className="text-xl md:text-2xl font-black text-white italic tracking-tighter uppercase group-hover:text-cyan-400 transition-colors">
+                                    COMPUTER SCIENCE & ENGINEERING
+                                </h3>
+                                <h4 className="text-xs font-bold text-slate-400 uppercase tracking-widest mt-2">
+                                    G. H. RAISONI COLLEGE, JALGAON
+                                </h4>
+                                
+                                <ul className="mt-8 space-y-4">
+                                  {[
+                                    "CGPA: 8.12 (Accumulated_Status)",
+                                    "Core_Specialization: Full Stack Systems",
+                                    "Operational_Activity: Hackathon_Lead"
+                                  ].map((point, i) => (
+                                    <li key={i} className="flex items-center gap-4 text-[11px] font-bold tracking-widest text-slate-400 uppercase p-3 border border-slate-800 rounded-lg group-hover:border-cyan-500/20 transition-all">
+                                      <div className="w-1.5 h-1.5 rounded-full bg-cyan-500 shadow-[0_0_8px_rgba(0,245,255,0.8)]"></div>
+                                      {point}
                                     </li>
-                                    <li className="flex items-center">
-                                        <span className="w-2 h-2 bg-purple-400 rounded-full mr-3"></span>
-                                        Specializing in Full Stack Development
-                                    </li>
-                                    <li className="flex items-center">
-                                        <span className="w-2 h-2 bg-purple-400 rounded-full mr-3"></span>
-                                        Active participant in coding competitions and hackathons
-                                    </li>
+                                  ))}
                                 </ul>
                             </div>
                         </VerticalTimelineElement>
@@ -101,50 +98,49 @@ function Education() {
                             className="vertical-timeline-element--education"
                             date="2022 - 2023"
                             contentStyle={{
-                                background: "rgba(255, 255, 255, 0.1)",
-                                backdropFilter: "blur(12px)",
+                                background: "rgba(15, 23, 42, 0.6)",
+                                backdropFilter: "blur(20px)",
                                 color: "#fff",
-                                border: "1px solid rgba(255, 255, 255, 0.1)",
-                                borderRadius: "16px",
-                                boxShadow: "0 10px 25px rgba(0, 0, 0, 0.2)",
+                                border: "1px solid rgba(8, 145, 178, 0.1)",
+                                borderRadius: "20px",
+                                boxShadow: "none",
+                                padding: "0"
                             }}
                             contentArrowStyle={{ 
-                                borderRight: "7px solid rgba(0, 255, 200, 0.3)" 
+                                borderRight: "7px solid rgba(8, 145, 178, 0.1)" 
                             }}
                             iconStyle={{
-                                background: "linear-gradient(135deg, #00ffc8 0%, #00b3ff 100%)",
-                                color: "#fff",
-                                boxShadow: "0 0 0 4px rgba(0, 255, 200, 0.3)",
+                                background: "#0f172a",
+                                color: "#06b6d4",
+                                boxShadow: "0 0 0 4px rgba(8, 145, 178, 0.1)",
                             }}
-                            icon={<FaGraduationCap className="text-xl" />}
+                            icon={<FaGraduationCap />}
                             visible={true}
                         >
-                            <div className="education-card-content">
-                                <h3 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400">
-                                    HSC (12th Grade)
-                                </h3>
-                                <h4 className="text-lg font-semibold text-gray-200 mt-2">
-                                    Chhatrapati Shivaji Junior College
-                                </h4>
-                                <div className="flex items-center mt-3 text-sm text-gray-400">
-                                    <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                                    </svg>
-                                    2022 - 2023
+                            <div className="p-8 group cyber-card">
+                                <div className="flex justify-between items-center mb-6 border-b border-white/5 pb-4">
+                                  <span className="text-[10px] font-black uppercase tracking-[0.3em] text-cyan-500">SESSION_HSC</span>
+                                  <span className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-500 group-hover:text-purple-400 transition-colors">2022 - 2023</span>
                                 </div>
-                                <ul className="timeline-points mt-4 space-y-2">
-                                    <li className="flex items-center">
-                                        <span className="w-2 h-2 bg-cyan-400 rounded-full mr-3"></span>
-                                        Percentage: 70%
+
+                                <h3 className="text-xl md:text-2xl font-black text-white italic tracking-tighter uppercase group-hover:text-cyan-400 transition-colors">
+                                    SECONDARY EDUCATION (12TH)
+                                </h3>
+                                <h4 className="text-xs font-bold text-slate-400 uppercase tracking-widest mt-2">
+                                    CHHATRAPATI SHIVAJI COLLEGE
+                                </h4>
+                                
+                                <ul className="mt-8 space-y-4">
+                                  {[
+                                    "Score_Metric: 70%",
+                                    "Discipline: Physics, Chemistry, Math",
+                                    "Foundational_Logic: Core Analytics"
+                                  ].map((point, i) => (
+                                    <li key={i} className="flex items-center gap-4 text-[11px] font-bold tracking-widest text-slate-400 uppercase p-3 border border-slate-800 rounded-lg group-hover:border-cyan-500/20 transition-all">
+                                      <div className="w-1.5 h-1.5 rounded-full bg-cyan-500 shadow-[0_0_8px_rgba(0,245,255,0.8)]"></div>
+                                      {point}
                                     </li>
-                                    <li className="flex items-center">
-                                        <span className="w-2 h-2 bg-cyan-400 rounded-full mr-3"></span>
-                                        PCM (Physics, Chemistry, Mathematics)
-                                    </li>
-                                    <li className="flex items-center">
-                                        <span className="w-2 h-2 bg-cyan-400 rounded-full mr-3"></span>
-                                        Developed strong foundation in logical reasoning
-                                    </li>
+                                  ))}
                                 </ul>
                             </div>
                         </VerticalTimelineElement>
@@ -152,12 +148,13 @@ function Education() {
                 </div>
 
                 {/* Additional Info */}
-                <div className={`transition-all duration-700 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'} text-center mt-16`}>
-                    <div className="bg-gray-800/40 backdrop-blur-lg rounded-2xl p-6 border border-gray-700/50 max-w-2xl mx-auto">
-                        <h3 className="text-xl font-semibold text-gray-200 mb-4">Continuous Learning</h3>
-                        <p className="text-gray-300">
-                            Beyond formal education, I continuously enhance my skills through online courses, 
-                            personal projects, and participating in coding communities and open-source projects.
+                <div className={`transition-all duration-1000 delay-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'} text-center mt-24 mb-12`}>
+                    <div className="inline-block glass-container px-12 py-10 border-cyan-500/10 hover:border-cyan-500/30 transition-all max-w-4xl">
+                        <p className="text-slate-500 uppercase tracking-[0.4em] text-[10px] font-bold mb-6">Continuous_Learning_Protocol</p>
+                        <h2 className="text-xl md:text-2xl font-black text-white mb-6 tracking-tight uppercase italic">PERPETUAL <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-600 aatreyve-glow">KNOWLEDGE_ACQUISITION</span></h2>
+                        <p className="text-slate-400 text-sm md:text-base leading-relaxed font-light">
+                            Beyond institutional deployments, I am in a state of constant upgrade through peer-reviewed research, 
+                            personal laboratory projects, and active participation in global open-source infrastructure.
                         </p>
                     </div>
                 </div>

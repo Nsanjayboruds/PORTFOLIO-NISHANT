@@ -4,15 +4,13 @@ import ProjectCard from "./ProjectCards";
 import leaf from "../../Assets/Projects/leaf.png";
 import storyGeneratorImage from "../../Assets/Projects/storyGenerator.png"; 
 import jarvisImage from "../../Assets/Projects/jarvis.png";
+import fiscalAuraImage from "../../Assets/Projects/fiscalAura.png";
 import Particles from "../Particles";
+import ProjectsBackground from "./ProjectsBackground";
+import { motion, AnimatePresence } from "framer-motion";
 
 function Projects() {
-  const [isVisible, setIsVisible] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState("all");
-
-  useEffect(() => {
-    setIsVisible(true);
-  }, []);
 
   const projects = [
     {
@@ -44,6 +42,16 @@ function Projects() {
       ghLink: "https://github.com/Nsanjayboruds/plant-disease",
       demoLink: "",
       tags: ["PyTorch", "Deep Learning", "CV", "Python"]
+    },
+    {
+      id: 4,
+      category: "ai",
+      imgPath: fiscalAuraImage,
+      title: "FiscalAura",
+      description: "The Radiant Future of Tax Strategy. An autonomous financial partner engineered for absolute wealth optimization. Built with an ultra-premium interface and next-gen fiscal intelligence.",
+      ghLink: "https://github.com/Nsanjayboruds/FiscalAura",
+      demoLink: "",
+      tags: ["React", "AI", "Tailwind", "Financial_Intelligence"]
     }
   ];
 
@@ -58,61 +66,84 @@ function Projects() {
     : projects.filter(p => p.category === selectedCategory);
 
   return (
-    <section style={{ position: "relative", overflow: "hidden", minHeight: "100vh" }}>
+    <section className="relative overflow-hidden min-h-screen !bg-[#030014] project-vault-section">
+      {/* 3D Immersive Background */}
+      <ProjectsBackground />
+
       {/* Background Particles */}
-      <div
-        style={{
-          position: "fixed",
-          top: 0,
-          left: 0,
-          width: "100vw",
-          height: "100vh",
-          zIndex: -1,
-        }}
-      >
-        <Particles />
+      <div className="fixed top-0 left-0 w-full h-full -z-10 opacity-30 pointer-events-none">
+        <Particles 
+          particleColors={["#00f5ff", "#bf00ff", "#ff006e"]}
+          particleCount={50}
+          speed={0.1}
+        />
+      </div>
+
+      {/* Cinematic Cyber Background Accents */}
+      <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
+        <div className="absolute top-1/4 -right-20 w-96 h-96 bg-cyan-500/5 blur-[120px] rounded-full"></div>
+        <div className="absolute bottom-1/4 -left-20 w-96 h-96 bg-purple-600/5 blur-[120px] rounded-full"></div>
       </div>
 
       {/* Foreground Content */}
-      <Container fluid className="project-section py-16 md:py-24 px-4">
+      <Container fluid className="project-section py-16 md:py-24 px-4 relative z-10">
         <Container>
-          <div className={`transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-8'} text-center mb-16 stagger-item-1`}>
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              <span className="text-white">My Recent </span>
-              <span className="text-transparent bg-gradient-to-r from-slate-200 to-slate-400 bg-clip-text font-bold text-5xl md:text-6xl">Projects</span>
+          <motion.div 
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            className="text-center mb-20"
+          >
+            <h1 className="text-5xl md:text-7xl font-black mb-8 tracking-tighter uppercase relative">
+              <span className="text-cyan-500/40 block text-sm uppercase tracking-[0.5em] mb-4 font-mono">NODE_ACCESSED: 0xVAULT</span>
+              CYBERNETIC <span className="text-transparent bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text aatreyve-glow-strong">REPOSITORIES</span>
             </h1>
-            <p className="text-slate-400 max-w-3xl mx-auto text-lg leading-relaxed">
-              Innovative solutions spanning AI, Machine Learning, and Full-Stack Development. Each project showcases cutting-edge technology and problem-solving expertise.
+            <p className="text-slate-400 max-w-4xl mx-auto text-lg md:text-xl leading-relaxed font-light high-contrast-text">
+              Engineering digital evolution through intelligent models and cinematic interfaces. Accessing specialized project nodes...
             </p>
-          </div>
+          </motion.div>
 
           {/* Professional Category Filter */}
-          <div className={`transition-all duration-700 text-center mb-16 stagger-item-2 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-            <div className="flex flex-wrap justify-center gap-3 bg-slate-800/40 backdrop-blur-md p-6 rounded-xl inline-block border border-slate-700/50">
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.5, duration: 1 }}
+            className="text-center mb-20"
+          >
+            <div className="inline-flex flex-wrap justify-center gap-4 glass-container p-2 rounded-2xl border-white/5 bg-slate-950/20 forced-glass-blur">
               {categories.map((cat) => (
                 <button
                   key={cat.value}
                   onClick={() => setSelectedCategory(cat.value)}
-                  className={`px-6 py-2 rounded-lg font-medium transition-all duration-300 ${
+                  className={`px-8 py-3 rounded-xl text-[10px] font-black uppercase tracking-[0.2em] transition-all duration-500 ${
                     selectedCategory === cat.value
-                      ? "bg-slate-700 text-white border border-slate-600"
-                      : "bg-transparent text-slate-300 border border-slate-600/50 hover:border-slate-500 hover:text-white"
+                      ? "bg-cyan-500 text-black shadow-[0_0_25px_rgba(0,245,255,0.4)]"
+                      : "bg-transparent text-slate-500 hover:text-cyan-400 hover:bg-cyan-500/10"
                   }`}
-                  style={{
-                    boxShadow: selectedCategory === cat.value ? '0 0 30px rgba(102, 126, 234, 0.5)' : 'none'
-                  }}
                 >
-                  {cat.label}
+                  {cat.label.replace(" ", "_")}
                 </button>
               ))}
             </div>
-          </div>
+          </motion.div>
 
-          <Row style={{ justifyContent: "center", paddingBottom: "30px" }}>
-            {filteredProjects.map((project, index) => (
-              <Col md={4} className="project-card mb-8 stagger-item-3" key={project.id}>
-                <div className={`transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: `${index * 150}ms` }}>
-                  <div className="relative h-full group hover-lift">
+          <Row className="justify-center gap-y-12">
+            <AnimatePresence mode="popLayout">
+              {filteredProjects.map((project, index) => (
+                <Col md={4} key={project.id} className="project-card">
+                  <motion.div
+                    layout
+                    initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    exit={{ opacity: 0, scale: 0.9, y: 20 }}
+                    transition={{ 
+                      duration: 0.5, 
+                      delay: index * 0.1,
+                      type: "spring", 
+                      stiffness: 260, 
+                      damping: 20 
+                    }}
+                  >
                     <ProjectCard
                       imgPath={project.imgPath}
                       isBlog={false}
@@ -121,48 +152,48 @@ function Projects() {
                       ghLink={project.ghLink}
                       demoLink={project.demoLink}
                     />
+                    
                     {/* Advanced Project Tags */}
-                    <div className="absolute top-4 right-4 flex flex-wrap gap-2 stagger-item-4">
+                    <div className="absolute top-6 left-6 flex flex-wrap gap-2 z-20 pointer-events-none">
                       {project.tags.map((tag, idx) => (
                         <span 
                           key={idx}
-                          className="inline-block px-3 py-1 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 text-cyan-300 text-xs font-bold rounded-full border-2 border-cyan-400/40 backdrop-blur-sm hover-glow transition-all duration-300"
-                          style={{
-                            animation: 'slideInLeft 0.5s ease-out',
-                            animationDelay: `${idx * 100}ms`,
-                            animationFillMode: 'both'
-                          }}
+                          className="inline-block px-3 py-1 bg-black/60 text-cyan-400 text-[9px] font-black uppercase tracking-widest rounded-md border border-cyan-500/30 backdrop-blur-md forced-glass-blur"
                         >
                           {tag}
                         </span>
                       ))}
                     </div>
-                  </div>
-                </div>
-              </Col>
-            ))}
+                  </motion.div>
+                </Col>
+              ))}
+            </AnimatePresence>
           </Row>
 
           {/* Advanced Call to Action */}
-          <div className={`transition-all duration-700 delay-600 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'} text-center mt-16 stagger-item-5`}>
-            <p className="text-gray-300 mb-8 text-lg font-medium">
-              🚀 Explore all my innovative projects on GitHub
-            </p>
-            <a
-              href="https://github.com/Nsanjayboruds"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-gradient-to-r from-purple-600 via-cyan-500 to-pink-600 text-white font-bold text-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 active:scale-95"
-              style={{
-                boxShadow: '0 0 30px rgba(168, 85, 247, 0.5)'
-              }}
-            >
-              View All Projects
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-              </svg>
-            </a>
-          </div>
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1 }}
+            className="text-center mt-32 mb-12"
+          >
+            <div className="inline-block glass-container px-12 py-10 border-white/5 bg-slate-950/40 hover:border-cyan-500/30 transition-all absolute-dark-card forced-glass-blur">
+              <p className="text-slate-500 uppercase tracking-[0.4em] text-[10px] font-bold mb-6">Global_Sync_Protocol</p>
+              <h2 className="text-2xl md:text-3xl font-black text-white mb-10 tracking-tight high-contrast-text uppercase">Explore the <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-600 aatreyve-glow">Core_Repository</span></h2>
+              <a
+                href="https://github.com/Nsanjayboruds"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative inline-flex items-center justify-center gap-4 px-10 py-5 bg-white text-black font-black text-sm tracking-[0.2em] rounded-xl hover:bg-cyan-400 hover:text-black transition-all duration-500 hover:shadow-[0_0_30px_rgba(0,245,255,0.5)]"
+              >
+                INITIALIZE_GITHUB_LINK
+                <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </a>
+            </div>
+          </motion.div>
         </Container>
       </Container>
     </section>

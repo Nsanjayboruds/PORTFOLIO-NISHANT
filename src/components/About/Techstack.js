@@ -39,47 +39,35 @@ function Techstack() {
   ];
 
   return (
-    <Row style={{ justifyContent: "center", paddingBottom: "30px" }}>
+    <Row className="flex justify-center gap-6 md:gap-8 pb-12">
       {technologies.map((tech, index) => (
         <Col 
           key={index} 
-          xs={4} 
+          xs={5} 
           md={2} 
-          className="tech-icons mb-4"
-          style={{ position: "relative" }}
+          className="group relative"
         >
-          <div 
-            className="tech-icon-container"
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              justifyContent: "center",
-              position: "relative",
-            }}
-          >
-            <div 
-              className="icon-wrapper p-3 rounded-lg bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 hover:scale-110"
-              style={{
-                cursor: "pointer",
-                transition: "all 0.3s ease",
-              }}
-            >
+          <div className="cyber-card flex flex-col items-center justify-center min-h-[140px] md:min-h-[160px] border-cyan-500/10 hover:border-cyan-400 group-hover:bg-cyan-400/5 transition-all duration-500 group-hover:-translate-y-2 relative overflow-hidden">
+            {/* Holographic Noise & Flicker Overlay */}
+            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+              <div className="hologram-noise"></div>
+              <div className="absolute inset-0 animate-hologram bg-cyan-500/5"></div>
+            </div>
+
+            {/* Glowing Hex Background Effect */}
+            <div className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-500 bg-[radial-gradient(circle_at_center,var(--aatreyve-primary)_0%,transparent_70%)]"></div>
+            
+            <div className="text-4xl md:text-5xl text-slate-300 group-hover:text-cyan-400 group-hover:scale-110 transition-all duration-500 z-10 aatreyve-glow">
               {tech.icon}
             </div>
-            <div 
-              className="tech-name mt-2 text-xs text-gray-400 font-medium opacity-0 transition-opacity duration-300"
-              style={{
-                position: "absolute",
-                bottom: "-20px",
-                left: "50%",
-                transform: "translateX(-50%)",
-                whiteSpace: "nowrap",
-              }}
-            >
+            
+            <div className="mt-4 text-[10px] md:text-xs font-black uppercase tracking-[0.3em] text-slate-500 group-hover:text-cyan-400 transition-colors duration-500 z-10 text-center">
               {tech.name}
             </div>
           </div>
+          
+          {/* Signal Pulse Effect */}
+          <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-8 h-1 bg-cyan-400 rounded-full blur-sm scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
         </Col>
       ))}
     </Row>

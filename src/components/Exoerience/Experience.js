@@ -50,102 +50,108 @@ function Experience() {
   }, []);
 
   return (
-    <section className="experience-section relative min-h-screen overflow-hidden">
-      {/* Particle background */}
-      <div className="particle-bg fixed top-0 left-0 w-full h-full -z-10">
-        <Particles
-          particleColors={["#8b5cf6", "#ec4899", "#ffffff"]}
-          particleCount={200}
-          particleSpread={10}
-          speed={0.1}
-          particleBaseSize={100}
-          moveParticlesOnHover={true}
-          alphaParticles={false}
-          disableRotation={false}
+    <section className="relative min-h-screen overflow-hidden bg-aatreyve">
+      {/* Cinematic Cyber Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-indigo-950 via-slate-950 to-indigo-950 opacity-80"></div>
+      
+      {/* Background Particles */}
+      <div className="fixed top-0 left-0 w-full h-full -z-10 opacity-50">
+        <Particles 
+          particleColors={["#00f5ff", "#bf00ff"]}
+          particleCount={100}
+          speed={0.12}
         />
       </div>
 
-      {/* Foreground content */}
-      <div className="experience-content-wrapper py-16 md:py-24 px-4">
-        <div className={`transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-8'} text-center mb-16`}>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            My <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500">Experience</span>
-          </h2>
-          <p className="text-gray-300 max-w-2xl mx-auto text-lg">
-            Here's a timeline of my professional journey and contributions
+      <div className="py-24 px-4 relative z-10">
+        <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-12'} text-center mb-24`}>
+          <h1 className="text-5xl md:text-7xl font-black mb-8 tracking-tighter uppercase">
+            <span className="text-white opacity-40 block text-sm uppercase tracking-[0.5em] mb-4">Operational_Timeline</span>
+            EXPERIENCE <span className="text-transparent bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text aatreyve-glow-strong">LOGS</span>
+          </h1>
+          <p className="text-slate-400 max-w-4xl mx-auto text-lg md:text-xl leading-relaxed font-light">
+            Sequential deployment history of technical implementations and collaborative contributions across the digital landscape.
           </p>
         </div>
 
-        <div className="experience-timeline max-w-6xl mx-auto">
+        <div className="max-w-5xl mx-auto relative px-8">
+          {/* Central Vertical Line */}
+          <div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-cyan-500 via-purple-600 to-transparent opacity-20 hidden md:block"></div>
+
           {experiences.map((exp, index) => (
             <div 
               key={index} 
-              className={`experience-card-container ${index % 2 === 0 ? 'left-timeline' : 'right-timeline'} transition-all duration-700 delay-${index * 200} ${isVisible ? 'opacity-100' : 'opacity-0'}`}
+              className={`relative mb-20 md:mb-32 transition-all duration-1000 delay-${index * 200} ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}
             >
-              <div className="experience-card bg-gray-800/40 backdrop-blur-lg rounded-2xl p-6 shadow-xl border border-gray-700/50 relative overflow-hidden">
-                {/* Timeline connector */}
-                <div className={`timeline-connector ${index % 2 === 0 ? 'left-connector' : 'right-connector'}`}></div>
-                
-                {/* Decorative icon */}
-                <div className={`experience-icon ${index % 2 === 0 ? 'left-icon' : 'right-icon'}`}>
-                  <span className="text-2xl">{exp.icon}</span>
+              <div className={`flex flex-col md:flex-row items-center gap-12 ${index % 2 === 0 ? '' : 'md:flex-row-reverse'}`}>
+                {/* Timeline node */}
+                <div className="absolute left-1/2 -translate-x-1/2 w-12 h-12 rounded-full border border-cyan-500/30 bg-slate-900 flex items-center justify-center z-10 hidden md:flex shadow-[0_0_20px_rgba(0,245,255,0.2)]">
+                  <div className="w-4 h-4 rounded-full bg-cyan-400 animate-pulse"></div>
                 </div>
-                
-                <div className="experience-content">
-                  <div className="flex items-start mb-4">
-                    <div>
-                      <h3 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">
-                        {exp.title}
-                      </h3>
-                      <h4 className="text-lg font-semibold text-gray-200 mt-1">{exp.company}</h4>
+
+                {/* Content Side */}
+                <div className="w-full md:w-[45%]">
+                  <div className="glass-container p-8 md:p-10 border-cyan-500/10 hover:border-cyan-400 transition-all group cyber-card">
+                    {/* Diagnostic metadata */}
+                    <div className="flex justify-between items-center mb-6 border-b border-white/5 pb-4">
+                      <span className="text-[10px] font-black uppercase tracking-[0.3em] text-cyan-400">ENTRY_0{index + 1}</span>
+                      <span className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-500 group-hover:text-purple-400 transition-colors">{exp.date}</span>
                     </div>
-                  </div>
-                  
-                  <div className="flex flex-wrap gap-4 mb-4">
-                    <span className="flex items-center text-sm text-gray-400">
-                      <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                      </svg>
-                      {exp.date}
-                    </span>
-                    <span className="flex items-center text-sm text-gray-400">
-                      <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+
+                    <div className="flex items-center gap-4 mb-6">
+                      <div className="w-12 h-12 flex items-center justify-center rounded-xl bg-slate-900 border border-white/10 text-2xl group-hover:scale-110 transition-transform">
+                        {exp.icon}
+                      </div>
+                      <div>
+                        <h3 className="text-xl md:text-2xl font-black text-white italic tracking-tighter uppercase group-hover:text-cyan-400 transition-colors">
+                          {exp.title}
+                        </h3>
+                        <h4 className="text-xs font-bold text-slate-400 uppercase tracking-widest mt-1">{exp.company}</h4>
+                      </div>
+                    </div>
+                    
+                    <p className="text-slate-400 text-sm leading-relaxed mb-6 group-hover:text-slate-200 transition-colors">
+                      {exp.description}
+                    </p>
+
+                    <div className="flex items-center text-[9px] font-bold text-slate-500 uppercase tracking-widest">
+                      <svg className="w-3 h-3 mr-2 text-cyan-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                       </svg>
                       {exp.location}
-                    </span>
-                  </div>
-                  
-                  <p className="text-gray-300 leading-relaxed">{exp.description}</p>
-                  
-                  {/* Status indicator for current positions */}
-                  {(exp.date.includes('Present') || exp.date.includes('Current')) && (
-                    <div className="flex items-center mt-4 text-sm text-green-400">
-                      <span className="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></span>
-                      Currently active
                     </div>
-                  )}
+                    
+                    {/* Status indicator */}
+                    {(exp.date.includes('Present') || exp.date.includes('Current')) && (
+                      <div className="absolute top-0 right-0 px-3 py-1 bg-cyan-500 text-black text-[8px] font-black tracking-[0.2em] rounded-bl-lg">
+                        ACTIVE_NODE
+                      </div>
+                    )}
+                  </div>
                 </div>
+
+                {/* Empty side for layout */}
+                <div className="hidden md:block w-[45%]"></div>
               </div>
             </div>
           ))}
         </div>
 
         {/* Call to Action */}
-        <div className={`transition-all duration-700 delay-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'} text-center mt-16`}>
-          <p className="text-gray-400 mb-6">
-            Interested in working together?
-          </p>
-          <a
-            href="#contact"
-            className="inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-purple-600 to-pink-500 text-white font-medium hover:from-purple-700 hover:to-pink-600 transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl"
-          >
-            Get In Touch
-            <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
-            </svg>
-          </a>
+        <div className={`transition-all duration-1000 delay-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'} text-center mt-24 mb-12`}>
+          <div className="inline-block glass-container px-12 py-10 border-cyan-500/10 hover:border-cyan-500/30">
+            <p className="text-slate-500 uppercase tracking-[0.4em] text-[10px] font-bold mb-6">Establish_Connection</p>
+            <h2 className="text-2xl md:text-3xl font-black text-white mb-10 tracking-tight italic uppercase">Collaborative <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 aatreyve-glow">Interfacing</span></h2>
+            <a
+              href="#contact"
+              className="inline-flex items-center gap-3 px-10 py-5 bg-white text-black font-black text-sm tracking-[0.2em] rounded-xl hover:bg-cyan-400 hover:text-black transition-all duration-500 hover:shadow-[0_0_30px_rgba(0,245,255,0.5)]"
+            >
+              INITIATE_CONTACT
+              <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </a>
+          </div>
         </div>
       </div>
     </section>
